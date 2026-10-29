@@ -1,75 +1,49 @@
-# React + TypeScript + Vite
+# 💳 Payment Checkout Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, secure, and user-friendly payment checkout form built with React and TypeScript. 
 
-Currently, two official plugins are available:
+This project demonstrates advanced form handling, input masking, real-time data visualization, and robust validation using modern frontend tools.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Framework:** React 18
+*   **Language:** TypeScript
+*   **Build Tool:** Vite
+*   **Form Management:** React Hook Form
+*   **Validation:** Zod
+*   **Input Masking:** React IMask
+*   **Styling:** Vanilla CSS (CSS Grid, Flexbox, Animations)
+*   **API:** Mock API with simulated network delays and error handling
 
-## Expanding the ESLint configuration
+## ✨ Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   **Real-time Card Visualization:** A dynamic credit card preview that updates instantly as the user types.
+*   **Input Masking:** Seamless formatting for card number (`0000 0000 0000 0000`), expiry date (`MM/YY`), and CVV.
+*   **Strict Validation:** Form validation using `zod` with clear, user-friendly error messages (e.g., only Latin letters for the cardholder name).
+*   **Asynchronous Payment Processing:** Simulated payment gateway with loading states and error handling.
+*   **Duplicate Charge Prevention:** The submit button is disabled during the transaction to prevent multiple submissions.
+*   **Success & Error Screens:** Dedicated UI states for successful and failed payments.
+*   **Responsive Design:** Fully responsive UI that works on desktop and mobile devices.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 How to Run Locally
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nyanlena/payment-checkout-form.git
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Navigate to the project directory:
+   ```bash
+   cd payment-checkout-form
 
-```
+3. Install dependencies:
+   ```bash
+   npm install --legacy-peer-deps
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+4. Start the development server:
+   ```bash
+   npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+5. Open your browser and navigate to:
+   http://localhost:5173
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
